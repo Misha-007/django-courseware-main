@@ -1,10 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from cloudinary_storage.storage import RawMediaCloudinaryStorage
 #3rd apps field
 from ckeditor.fields import RichTextField
 
 import os
+
 
 # Create your models here.
 
@@ -15,7 +16,7 @@ def user_directory_path(instance, filename):
 
 class AssignmentFileContent(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
-	file = models.FileField(upload_to=user_directory_path)
+	file = models.FileField(upload_to=user_directory_path,storage=RawMediaCloudinaryStorage())
 
 	def get_file_name(self):
 		return os.path.basename(self.file.name)
