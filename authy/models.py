@@ -37,15 +37,6 @@ class Profile(models.Model):
     picture = models.ImageField(upload_to=user_directory_path_profile, blank=True, null=True, verbose_name='Picture')
     banner = models.ImageField(upload_to=user_directory_path_banner, blank=True, null=True, verbose_name='Banner')
 
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        SIZE = 250, 250
-
-        if self.picture:
-            pic = Image.open(self.picture.path)
-            pic.thumbnail(SIZE, Image.LANCZOS)
-            pic.save(self.picture.path)
-
     def __str__(self):
         return self.user.username
         
