@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'question',
     'completion',
     'direct',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -146,6 +148,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dwvppdcdf',
+    'API_KEY': '544942961283776',
+    'API_SECRET': 'cuHRsgL3YkIOdhYyVFYyYjWuNnA'
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+CLOUDINARY_URL ='cloudinary://544942961283776:cuHRsgL3YkIOdhYyVFYyYjWuNnA@dwvppdcdf'
 django_heroku.settings(locals())
 
 #Login
