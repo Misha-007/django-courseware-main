@@ -30,10 +30,10 @@
     <div class="nav-wrapper container">
       <a href="{% url 'index' %}" class="brand-logo"><i class="material-icons">cloud</i>UE Learn</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons left">person</i>Menu{% if directs_count %}<sup><span class="material-icons orange-text">feedback</span></sup>{% endif %}</a></li>
+        <li><a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons left">menu</i>Menu{% if directs_count %}<sup><span class="material-icons orange-text">feedback</span></sup>{% endif %}</a></li>
       </ul>
       <ul id="nav-mobile" class="sidenav">
-        <li><a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons left">person</i>Menu{% if directs_count %}<sup><span class="material-icons orange-text">feedback</span></sup>{% endif %}</a></li>
+        <li><a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons left">menu</i>Menu{% if directs_count %}<sup><span class="material-icons orange-text">feedback</span></sup>{% endif %}</a></li>
       </ul>
     </div>
   </nav>
@@ -67,6 +67,7 @@
     <li><a href="{% url 'index' %}"><i class="material-icons">dashboard</i>Dashboard</a></li>
     <li><a href="{% url 'categories' %}"><i class="material-icons">menu_book</i>Categories</a></li>
     <li><a href="{% url 'inbox' %}"><i class="material-icons">inbox</i>Inbox{% if directs_count %}<span class="new badge red">{{ directs_count }}</span>{% endif %}</a></li>
+    <li><a href="{% url 'calculator' %}"><i class="material-icons">chrome_reader_mode</i>Calculator</a></li>
     {% else %}
     <li><a class="subheader">Student</a></li>
     <li><div class="divider"></div></li>
@@ -74,6 +75,7 @@
     <li><a href="{% url 'index' %}"><i class="material-icons">dashboard</i>Dashboard</a></li>
     <li><a href="{% url 'student-course' %}"><i class="material-icons">menu_book</i>Courses</a></li>
     <li><a href="{% url 'inbox' %}"><i class="material-icons">inbox</i>Inbox{% if directs_count %}<span class="new badge red">{{ directs_count }}</span>{% endif %}</a></li>
+    <li><a href="{% url 'calculator' %}"><i class="material-icons">chrome_reader_mode</i>Calculator</a></li>
     {% endif %}
     <li><div class="divider"></div></li>
     <li><a href="{% url 'logout' %}"><i class="material-icons">power_off</i>Log out</a></li>
@@ -108,21 +110,13 @@
 
         </div>
         <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
+          <h5 class="white-text">Developers</h5>
           <ul>
             <li><a class="white-text" href="#!">Link 1</a></li>
             <li><a class="white-text" href="#!">Link 2</a></li>
             <li><a class="white-text" href="#!">Link 3</a></li>
             <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li><a class="white-text" href="#!">Link 5</a></li>
           </ul>
         </div>
       </div>

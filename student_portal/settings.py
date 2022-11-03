@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'direct',
     'cloudinary',
     'cloudinary_storage',
+    'calculator',
 ]
 
 MIDDLEWARE = [

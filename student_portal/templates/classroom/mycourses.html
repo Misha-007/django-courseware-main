@@ -7,7 +7,7 @@
 	<div class="divider"></div>
 </div>
 {% if teacher_mode == True %}
-<a  href="{% url 'newcourse' %}" class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">add</i></a>
+
 {% endif %}
 <div class="row">
 {% for course in courses %}
@@ -31,5 +31,7 @@
 </div>
 {% endfor %}
 </div>
-
+<div class="row center-align">
+<a  href="{% url 'newcourse' %}" class="btn waves-effect waves-light center rounded">Create Course</a>
+</div>
 {% endblock %}
