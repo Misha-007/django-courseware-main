@@ -5,10 +5,49 @@
 {% block content %}
 
 <div class="row center-align">
-  <div class="col s12">
+  <div class="col s12 center">
 
+    {% if ans == 1%}
+        <div class="card">
+          <div class="card-image">
+            <img src="https://www.cedars-sinai.org/content/dam/cedars-sinai/blog/2019/07/common-physical-symptoms-of-hidden-stress.jpg">
+            <span class="card-title black-text">You're Mentally Stressed</span>
+          </div>
+          <div class="card-content">
+            <h5 style="text-align: justify;
+            text-justify: inter-word; font-size: 20px;">
+            Things that can help with Stress<br><br>
+            Short periods of stress are normal and can often be resolved by something as simple as completing a task which cuts down your workload, or by talking to others and taking time to relax.
+            <br><br>
+              It might also help to:
+              <br><br>
+              Work out what it is that's making you feel stressed. For example, is it exams, money or relationship problems? See if you can change your circumstances to ease the pressure you're under. <br> <br>
+              Try to have a healthy lifestyle. Eat well, get enough sleep, be physically active (find out more about getting active), cut down on alcohol, and take time to relax as well as working and studying. <br><br>
+              Read about the 5 steps to mental wellbeing. <br><br>
+              Avoid drugs, including lots of caffeine - this can have a negative impact on your stress levels and wellbeing. <br><br>
+              Try not to worry about the future or compare yourself with others. <br><br>
+              Try relaxation and breathing exercises. <br><br>
+              Try to plan your time to help you keep track of your work. Break it down into manageable chunks so you can keep up with deadlines. <br><br>
+              Try talking to a friend, tutor or someone in your family about your stress. <br><br>
+              Read about how to cope with the stress of exams.</h5>
+          </div>
+          <div class="card-action ">
+            <a  class = "red-text" href="https://www.nhs.uk/mental-health/children-and-young-adults/help-for-teenagers-young-adults-and-students/student-stress-self-help-tips/" target="_blank">Find out more about how to deal with stress</a>
+          </div>
+        </div>
+    {% else %}
+        <div class="card">
+          <div class="card-image">
+            <img style="position: absolute;z-index: 999;"src="https://acegif.com/wp-content/uploads/gif/confetti-40.gif" alt="">
+            <img src="{% static 'img/jump.png' %}">
+            <span class="card-title black-text"></span>
+          </div>
+          <div class="card-content">
+            <h5>You're Not Mentally Stressed!</h5>
+          </div>
+        </div>
 
-    <h1>YOU ARE {{status}}</h1>
+    {% endif %}
 
 </div>
 </div>

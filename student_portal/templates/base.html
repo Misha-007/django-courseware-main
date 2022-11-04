@@ -30,7 +30,7 @@
     <div class="nav-wrapper container">
       <a href="{% url 'index' %}" class="brand-logo"><i class="material-icons">cloud</i>UE Learn</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons left">menu</i>Menu{% if directs_count %}<sup><span class="material-icons orange-text">feedback</span></sup>{% endif %}</a></li>
+        <li><a href="#" data-target="slide-out" class="sidenav-trigger show-on-large pulse"><i class="material-icons left">menu</i>Menu{% if directs_count %}<sup><span class="material-icons orange-text">feedback</span></sup>{% endif %}</a></li>
       </ul>
       <ul id="nav-mobile" class="sidenav">
         <li><a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons left">menu</i>Menu{% if directs_count %}<sup><span class="material-icons orange-text">feedback</span></sup>{% endif %}</a></li>
@@ -91,7 +91,6 @@
 <div class="container">
   <div class="section">
     {% block content %}
-
     {% endblock %}
   </div>
   </div>

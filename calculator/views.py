@@ -31,5 +31,6 @@ def result(request):
     context = {
 		'status':status,
         'user':user,
+        'ans':ans
 	}
     return render(request,'calculator/result.html',context)
