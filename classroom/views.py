@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
 from django.contrib.auth.models import User
 from classroom.models import Course, Category, Grade,Schedule,Attendance
+from quiz.models import Quizzes,Attempter
+from module.models import Module
 
 from classroom.forms import NewCourseForm,NewScheduleForm,NewAttendanceForm
 
@@ -338,7 +340,9 @@ def GradeSubmission(request, course_id, grade_id):
 	user = request.user
 	course = get_object_or_404(Course, id=course_id)
 	grade = get_object_or_404(Grade, id=grade_id)
-
+	teacher_mode = False
+	if user.groups.filter(name='Teacher'):
+		teacher_mode = True
 	if user != course.user:
 		return HttpResponseForbidden()
 	else:
@@ -352,6 +356,7 @@ def GradeSubmission(request, course_id, grade_id):
 	context = {
 		'course': course,
 		'grade': grade,
+		'teacher_mode':teacher_mode
 	}
 
 	return render(request, 'classroom/gradesubmission.html', context)
@@ -368,4 +373,27 @@ def StudentCourse(request):
 		'teacher_mode':teacher_mode,
 	}
 	return render(request, 'classroom/studentcourse.html', context)
+
+def StudentGrades(request, course_id):
+	user = request.user
+	course = get_object_or_404(Course, id=course_id)
+	assignment = Grade.objects.filter(course=course, submission__user=user)
+	module = Module.objects.filter(modules__in=[course.id])
+	module_id = []
+	for m in module:
+		mid = m.id
+		module_id.append(mid)
+	quiz = Quizzes.objects.filter(quiz__in=module_id)
+	grades = []
+	for q in quiz:
+		g = Attempter.objects.filter(user=user,quiz=q,).last()
+		grades.append(g)
+	grades = list(dict.fromkeys(grades))
+	context = {
+		'course':course,
+		'grades':grades,
+		'assignment':assignment
+	}
+	return render(request,'classroom/grades.html',context)
+
 

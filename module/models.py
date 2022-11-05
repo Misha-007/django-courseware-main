@@ -12,7 +12,7 @@ class Module(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='module_owner')
 	hours = models.PositiveIntegerField()
 	pages = models.ManyToManyField(Page)
-	quizzes = models.ManyToManyField(Quizzes)
+	quizzes = models.ManyToManyField(Quizzes, related_name='quiz')
 	assignments = models.ManyToManyField(Assignment)
 
 	def __str__(self):

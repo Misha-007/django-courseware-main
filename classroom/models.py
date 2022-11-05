@@ -50,7 +50,7 @@ class Course(models.Model):
 	syllabus = RichTextField()
 	user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='course_owner')
 	enrolled = models.ManyToManyField(User, related_name='enroll')
-	modules = models.ManyToManyField(Module)
+	modules = models.ManyToManyField(Module, related_name = 'modules')
 	questions = models.ManyToManyField(Question)
 
 

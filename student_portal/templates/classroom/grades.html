@@ -16,44 +16,44 @@
         <a href="{% url 'modules' course.id %}" class="collection-item">Module</a>
         <a href="{% url 'submissions' course.id %}" class="collection-item">Submissions</a>
         <a href="{% url 'questions' course.id %}" class="collection-item">Questions</a>
+        <a href="{% url 'student-grades' course.id %}" class="collection-item active">Grades</a>
 
         
-          <li class="collection-header"><h4>Teacher</h4></li>
-          <a href="{% url 'student-submissions' course.id %}" class="collection-item">Student Submissions</a>
-          <a href="{% url 'student-schedules' course.id %}" class="collection-item active">Student Schedules</a>
+        <li class="collection-header"><h4>Teacher</h4></li>
+        <a href="{% url 'student-submissions' course.id %}" class="collection-item ">Student Submissions</a>
+        <a href="{% url 'student-schedules' course.id %}" class="collection-item">Student Schedules</a>
+        
         
 
       </ul>
 </div>
 
 <div class="col s9">
-  {% if teacher_mode == True %}
-  <a href="{% url 'new-schedules' course.id %}" class="btn right">Create Schedule</a>
-  {% endif %}
+
   <div class="section">
-    <h4>Attendees in {{course.title}}</h4>
-    
+    <h4>Grades</h4>
 
       <table>
         <thead>
           <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Teacher</th>
-              <th>Date</th>
-              <th>Attendance</th>
+              <th>Type</th>
+              <th>Score</th>
+              <th>Out of</th>
           </tr>
         </thead>
 
         <tbody>
-            {% for person in students.enrolled.all %}
+        {% for grade in grades %}
           <tr>
-            <td>{{person.first_name}}</td>
-            <td>{{Last.first_name}}</td>
-            <td>{{ sched.adviser}}</td>
-            <td>{{ sched.date }}</td>
-           <td><a href="#" class="btn"><i class="material-icons">add</i></a></td>
+            <td>{{ grade.quiz}}</td>
+            <td>{{ grade.score }}</td>
+            <td>{{ grade.quiz.points}}</td>
           </tr>
+        {% endfor %}
+        {% for as in assignment %}
+            <td>{{ as.submission.assignment.title}}</td>
+            <td>{{ as.points }}</td>
+            <td>{{ as.submission.assignment.points}}</td>
         {% endfor %}
         </tbody>
       </table>
