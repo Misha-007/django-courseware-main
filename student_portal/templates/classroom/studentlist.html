@@ -1,6 +1,6 @@
-
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
 <div class="section">
 	<h4>{{ course.title }}</h4>
@@ -17,49 +17,55 @@
         <a href="{% url 'submissions' course.id %}" class="collection-item">Submissions</a>
         <a href="{% url 'questions' course.id %}" class="collection-item">Questions</a>
         <a href="{% url 'student-grades' course.id %}" class="collection-item">Grades</a>
-
         
-          <li class="collection-header"><h4>Teacher</h4></li>
-          <a href="{% url 'student-submissions' course.id %}" class="collection-item">Student Submissions</a>
-          <a href="{% url 'student-schedules' course.id %}" class="collection-item active">Student Schedules</a>
-          <a href="{% url 'student-list' course.id %}" class="collection-item ">Student List</a>
+        <li class="collection-header"><h4>Teacher</h4></li>
+        <a href="{% url 'student-submissions' course.id %}" class="collection-item">Student Submissions</a>
+        <a href="{% url 'student-schedules' course.id %}" class="collection-item ">Student Schedules</a>
+        <a href="{% url 'student-list' course.id %}" class="collection-item ">Student List</a>
         
 
       </ul>
 </div>
 
 <div class="col s9">
-  {% if teacher_mode == True %}
-  <a href="{% url 'new-schedules' course.id %}" class="btn right">Create Schedule</a>
-  {% endif %}
   <div class="section">
-    <h4>Edit Attendance for {{person.first_name}}</h4>
+    <h4>Student List</h4>
     
 
       <table>
         <thead>
           <tr>
+              <th>Username</th>
               <th>First Name</th>
               <th>Last Name</th>
-              <th>Date</th>
-              <th>Attendance</th>
+              <th>Status</th>
+              <th>Check</th>
           </tr>
         </thead>
 
         <tbody>
+            {% for person in students.enrolled.all %}
           <tr>
+            <td>{{person.username}}</td>
             <td>{{person.first_name}}</td>
             <td>{{person.last_name}}</td>
-            <td>{{schedules.date }}</td>
-           <td><form method="POST">
-            {% csrf_token %}{{form.status}}</td>
-           <td><button type="submit" class="btn waves-effect waves-light">
-            Save</button></td>
-            </form>
+            {% if person.id in stress%}
+            <td>"Stress"</td>
+            {% elif person.id in nstress%}
+            <td>Not Stress</td>
+            {%else%}
+            <td></td>
+            {% endif %}
+
+            <td><a href="{%url 'student-stress' course.id person.id%}" class="btn red"><i class="material-icons">check</i></a></td>
           </tr>
+        {% endfor %}
         </tbody>
       </table>
-    </div>
+
+
+
+  </div>
   
 </div>
 

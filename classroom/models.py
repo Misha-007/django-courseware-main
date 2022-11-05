@@ -85,3 +85,10 @@ class Attendance(models.Model):
 	def __str__(self):
 		return self.schedule.id
 
+class Status(models.Model):
+	course = models.ForeignKey(Course, on_delete=models.CASCADE)
+	person = models.ForeignKey(User,on_delete=models.CASCADE)
+	level = models.CharField(max_length=10)
+
+	def __str__(self):
+		return self.level

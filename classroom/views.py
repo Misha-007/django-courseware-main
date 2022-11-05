@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
 from django.contrib.auth.models import User
-from classroom.models import Course, Category, Grade,Schedule,Attendance
+from classroom.models import Course, Category, Grade,Schedule,Attendance,Status
 from quiz.models import Quizzes,Attempter
 from module.models import Module
+import joblib
 
 from classroom.forms import NewCourseForm,NewScheduleForm,NewAttendanceForm
 
@@ -395,5 +396,68 @@ def StudentGrades(request, course_id):
 		'assignment':assignment
 	}
 	return render(request,'classroom/grades.html',context)
+
+def StudentStress(request, course_id, person_id):
+	user = get_object_or_404(User, id=person_id)
+	model = joblib.load('Final_Stress_Model.sav')
+	course = get_object_or_404(Course, id=course_id)
+	assignment = Grade.objects.filter(course=course, submission__user=user)
+	module = Module.objects.filter(modules__in=[course.id])
+	module_id = []
+	for m in module:
+		mid = m.id
+		module_id.append(mid)
+	quiz = Quizzes.objects.filter(quiz__in=module_id)
+	grades = []
+	ass = []
+	lis = []
+	for q in quiz:
+		g = Attempter.objects.filter(user=user,quiz=q,).last()
+		grades.append(g)
+	clean = []
+	for i in grades:
+		if i is not None:
+			clean.append(i)
+	for a in assignment:
+		ass.append(a)
+	for i in clean:
+		lis.append(i.score/i.quiz.points*100)
+	for i in ass:
+		lis.append(i.points/i.submission.assignment.points*100)
+	print(lis)
+	if len(lis) == 7:
+		model = joblib.load('Final_Stress_Model.sav')
+		ans = model.predict([lis])
+		status = ""
+		if ans == 1:
+			status = "stress"
+		else:
+			status = "not"
+		m = Status.objects.create(course=course,person=user,level=status)
+		m.save()
+		return redirect('student-list', course_id=course_id)
+	else:
+		return redirect(MyCourses)
+
+def StudentList(request, course_id):
+	students = Course.objects.get(id=course_id)
+	course = get_object_or_404(Course, id=course_id)
+	status = Status.objects.filter(course=course)
+	stress = []
+	nstress = []
+	for i in status:
+		if i.level == 'stress':
+			stress.append(i.person.id)
+		if i.level =='not':
+			nstress.append(i.person.id)
+	print(stress)
+
+	context = {
+		'students':students,
+		'course':course,
+		'stress':stress,
+		'nstress':nstress
+	}
+	return render(request,'classroom/studentlist.html',context)
 
 
