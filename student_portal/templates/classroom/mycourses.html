@@ -12,7 +12,7 @@
 <div class="row">
 {% for course in courses %}
 <div class="col s12 m4">
-  <div class="card z-depth-5 small">
+  <div class="card z-depth-5 medium">
     <div class="card-image waves-effect waves-block waves-light">
       <a href="{% url 'course' course.id %}"><img class="activator" src="{{ course.picture.url }}"></a>
     </div>
