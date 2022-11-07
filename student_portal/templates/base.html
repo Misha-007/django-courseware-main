@@ -12,12 +12,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <title>UELearn</title>
+  <title>Coursescape</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
   <style>
@@ -25,10 +30,9 @@
 </head>
 <body>
 
-
   <nav class="red darken-4" role="navigation">
     <div class="nav-wrapper container">
-      <a href="{% url 'index' %}" class="brand-logo"><i class="material-icons">cloud</i>UE Learn</a>
+      <a href="{% url 'index' %}" class="brand-logo"><i class="material-icons large">timeline</i>Coursescape</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#" data-target="slide-out" class="sidenav-trigger show-on-large pulse"><i class="material-icons left">menu</i>Menu{% if directs_count %}<sup><span class="material-icons orange-text">feedback</span></sup>{% endif %}</a></li>
       </ul>
@@ -37,8 +41,6 @@
       </ul>
     </div>
   </nav>
-
-
 
   <ul id="slide-out" class="sidenav">
     <li><div class="user-view">
@@ -99,23 +101,23 @@
 
 
 
-  <footer class="page-footer red darken-4">
+  <footer class="page-footer">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">About UE Learn</h5>
-          <p class="white-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <h5 class="white-text">About Coursescape</h5>
+          <p class="white-text text-lighten-4">This web application was developed by 5 students aiming for helping their future generations on how they should cope and handle their mental stress during COVID-19 pandemic through the use of the courseware system.</p>
 
 
         </div>
-        <div class="col l3 s12">
+        <div class="col l3 s12 dev">
           <h5 class="white-text">Developers</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-            <li><a class="white-text" href="#!">Link 5</a></li>
+            <li><a class="white-text" href="https://www.linkedin.com/in/joycesayson/">Joyce Emmanuelle Sayson</a></li>
+            <li><a class="white-text" href="https://www.linkedin.com/in/alfred-brix-dames-a8b911240/">Alfred Brix Dames</a></li>
+            <li><a class="white-text" href="https://www.facebook.com/shawnlouis.martin">Shawn Louis Martin</a></li>
+            <li><a class="white-text" href="https://www.linkedin.com/in/gurmilap-singh/">Gurmilap Singh</a></li>
+            <li><a class="white-text" href="https://www.linkedin.com/in/johnmichael-sunga-b64581239/">John Michael Sunga</a></li>
           </ul>
         </div>
       </div>

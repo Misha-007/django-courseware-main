@@ -6,8 +6,8 @@
 <div class="section no-pad-bot" id="index-banner">
 	<div class="container">
 		<br><br>
-		<h2 class="header orange-text center">Learning</h2>
-		<h5 class="header col s12 light center"> Earn your certificate, learn a new skill or degree here.</h5>
+		<h2 class="header materialize-red-text center">Categories</h2>
+		<h5 class="header col s12 light center">Start engaging yourselves by choosing among these categories.</h5>
 	</div>
 </div>
 
@@ -23,8 +23,8 @@
 {% for category in categories %}
     <div class="col s12 m4">
       <a href="{% url 'category-courses' category.slug %}">
-      <div class="card-panel teal center-align white-text">
-        <i class="material-icons large">{{ category.icon }}</i>
+      <div class="card-panel red center-align white-text">
+        <i class="material-icons small">{{ category.icon }}</i>
         <h5><b>{{ category.title }}</b></h5>
       </div>
       </a>
