@@ -18,8 +18,8 @@
     <label>Select from course</label>
     </div>
 
-      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-        <i class="material-icons right">send</i>
+      <button class="btn waves-effect waves-light" type="submit" name="action">search
+        <i class="material-icons right">search</i>
       </button>
 
     
@@ -28,7 +28,7 @@
 <div class="row">
 {% for person in students.enrolled.all %}
     <div class="col s12 m4">
-              <div class="card">
+              <div class="card small">
                 <div class="card-image">
                   {% if person.profile.banner %}
                     <img src="{{ person.profile.banner.url }}">
