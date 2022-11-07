@@ -6,12 +6,12 @@
 <div class="section no-pad-bot" id="index-banner">
 	<div class="container">
 		<br><br>
-		<h2 class="header red-text center">Learning</h2>
-		<h5 class="header col s12 light center"> Earn your certificate, learn a new skill or degree here.</h5>
+		<h3 class="header materialize-red-text center">Start Learning!</h3>
+		<h5 class="header col s12 light center">Earn lots of knowledge! Browse and learn a new course here.</h5>
 	</div>
 	<div class="row center">
 		<br>
-		<a class="btn-large orange" href="{% url 'categories' %}">Browse</a>
+		<a class="btn-large red round" href="{% url 'categories' %}">Go to Categories</a>
 	</div>
 </div>
 
@@ -28,7 +28,7 @@
 {% for course in courses %}
 <div class="col s12 m4">
   <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
+    <div class="card-image waves-effect waves-block waves-light" id="imageCard">
       <img class="activator" src="{{ course.picture.url }}">
     </div>
     <div class="card-content">
