@@ -27,7 +27,7 @@
             </div>
             <div class="right-align">
               {% if user.is_authenticated and user == profile.user %}
-                <a href="{% url 'edit-profile' %}" class="btn"><i class="material-icons">edit</i>Edit profile</a>
+                <a href="{% url 'edit-profile' %}" class="btn"><i class="material-icons small">edit</i>Edit profile</a>
               {% endif %}
             </div>
             <div class="col s10">
