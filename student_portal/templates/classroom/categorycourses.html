@@ -9,9 +9,6 @@
 </div>
 
 <div class="row">
-{% if teacher_mode == True %}
-<a  href="{% url 'newcourse' %}" class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">add</i></a>
-{% endif %}
 {% for course in courses %}
 <div class="col s12 m4">
   <div class="card">
@@ -31,5 +28,9 @@
 </div>
 {% endfor %}
 </div>
-
+{% if teacher_mode == True %}
+<div class="row center-align">
+  <a  href="{% url 'newcourse' %}" class="btn waves-effect waves-light center rounded fl pulse">Create Course</a>
+</div>
+{% endif %}
 {% endblock %}

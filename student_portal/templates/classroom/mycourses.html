@@ -23,9 +23,11 @@
       <a href="{% url 'delete-course' course.id %}" class="btn red">Delete</a>
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">About<i class="material-icons right">close</i></span>
-        
-      <p>{{ course.description }}</p>
+      <span class="card-title grey-text text-darken-4">Student Stress Status<i class="material-icons right">close</i></span>
+      <br><br>
+      <div class="center-align">
+      <div class="pie animate" style="--p:50;--c:lightgreen"> 50% </div>
+      </div>
     </div>
   </div>
 </div>
